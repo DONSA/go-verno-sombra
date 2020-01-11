@@ -1,7 +1,6 @@
 # Poject related
 .env
 cache/
-feed.json
 main
 
 # Binaries for programs and plugins
