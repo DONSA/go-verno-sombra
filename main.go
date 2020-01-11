@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"time"
 
 	"github.com/gocolly/colly"
 	"github.com/joho/godotenv"
@@ -27,11 +28,10 @@ type Author struct {
 }
 
 type Episode struct {
-	Title     string
-	Lead      string
-	Url       string
-	Image     string
-	Published string
+	Title         string `json:"title"`
+	DatePublished string `json:"date_published"`
+	Id            string `json:"id"`
+	Url           string `json:"url"`
 }
 
 func main() {
@@ -54,10 +54,10 @@ func main() {
 	collector.OnHTML("article", func(e *colly.HTMLElement) {
 		episode := Episode{
 			Title: e.ChildText(".textDetails .title a"),
-			Lead: e.ChildText(".textDetails .lead"),
+			//DatePublished: e.ChildText(".publishedDate"),
+			DatePublished: time.Now().Format(time.RFC3339),
+			Id: "https://sic.pt/" + e.ChildAttr("a", "href"),
 			Url: "https://sic.pt/" + e.ChildAttr("a", "href"),
-			Image: "https:" + e.ChildAttr("img", "src"),
-			Published: e.ChildText(".publishedDate"),
 		}
 
 		episodes = append(episodes, episode)
