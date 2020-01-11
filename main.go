@@ -74,8 +74,8 @@ func generateFile(episodes []Episode) {
 	rss := RSS{
 		"https://jsonfeed.org/version/1",
 		"Governo Sombra",
-		"SIC",
-		domain,
+		"Scraper in Go to generate a json feed",
+		"https://sic.pt/Programas/governo-sombra/videos",
 		domain + "/go-verno-sombra/feed.json",
 		Author{
 			"Nuno Lopes",
