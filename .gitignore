@@ -2,6 +2,7 @@
 .env
 cache/
 feed.json
+main
 
 # Binaries for programs and plugins
 *.exe

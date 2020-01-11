@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/gocolly/colly"
+	"github.com/joho/godotenv"
 )
 
 type RSS struct {
