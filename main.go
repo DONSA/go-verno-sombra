@@ -13,12 +13,13 @@ import (
 
 type RSS struct {
 	Version     string `json:"version"`
-	UserComment string `json:"user_comment"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	HomePageUrl string `json:"home_page_url"`
 	FeedUrl     string `json:"feed_url"`
 	Author      Author `json:"author"`
+	Icon        string `json:"icon"`
+	Favicon     string `json:"favicon"`
 	Items       []Episode `json:"items"`
 }
 
@@ -71,8 +72,7 @@ func main() {
 func generateFile(episodes []Episode) {
 	domain := os.Getenv("DOMAIN")
 	rss := RSS{
-		domain + "/go-verno-sombra/version/1",
-		"Scraper in Go to generate a json feed for Governo Sombra",
+		"https://jsonfeed.org/version/1",
 		"Governo Sombra",
 		"SIC",
 		domain,
@@ -81,6 +81,8 @@ func generateFile(episodes []Episode) {
 			"Nuno Lopes",
 			domain,
 		},
+		"https://static.impresa.pt/sic/2039//assets/gfx/icon.png",
+		"https://sic.pt/favicon.ico?v=2",
 		episodes,
 	}
 
