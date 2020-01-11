@@ -77,9 +77,9 @@ func generateFile(episodes []Episode) {
 	rss := RSS{
 		"https://jsonfeed.org/version/1",
 		"Governo Sombra",
-		"Scraper in Go to generate a json feed",
+		"SIC - Televisão",
 		"https://sic.pt/Programas/governo-sombra/videos",
-		domain + "/go-verno-sombra/feeds/json",
+		domain + "/go-verno-sombra/rss.json",
 		Author{
 			"Nuno Lopes",
 			domain,
@@ -90,7 +90,7 @@ func generateFile(episodes []Episode) {
 	}
 
 	json, _ := json.MarshalIndent(rss, "", " ")
-	err := ioutil.WriteFile("./feeds/json", json, 0644)
+	err := ioutil.WriteFile("./rss.json", json, 0644)
 
 	if err != nil {
 		log.Println(err)
@@ -98,5 +98,5 @@ func generateFile(episodes []Episode) {
 		return
 	}
 
-	log.Println("File './feeds/json' was successfully generated")
+	log.Println("File './rss.json' was successfully generated")
 }
