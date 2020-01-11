@@ -33,6 +33,7 @@ type Episode struct {
 	DatePublished string `json:"date_published"`
 	Id            string `json:"id"`
 	Url           string `json:"url"`
+	ContentHtml   string `json:"content_html"`
 }
 
 func main() {
@@ -59,6 +60,8 @@ func main() {
 			DatePublished: time.Now().Format(time.RFC3339),
 			Id: "https://sic.pt/" + e.ChildAttr("a", "href"),
 			Url: "https://sic.pt/" + e.ChildAttr("a", "href"),
+			ContentHtml: e.ChildText(".textDetails .lead"),
+
 		}
 
 		episodes = append(episodes, episode)
