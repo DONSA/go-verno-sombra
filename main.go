@@ -12,14 +12,14 @@ import (
 )
 
 type RSS struct {
-	Version     string `json:"version"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	HomePageUrl string `json:"home_page_url"`
-	FeedUrl     string `json:"feed_url"`
-	Author      Author `json:"author"`
-	Icon        string `json:"icon"`
-	Favicon     string `json:"favicon"`
+	Version     string    `json:"version"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
+	HomePageUrl string    `json:"home_page_url"`
+	FeedUrl     string    `json:"feed_url"`
+	Author      Author    `json:"author"`
+	Icon        string    `json:"icon"`
+	Favicon     string    `json:"favicon"`
 	Items       []Episode `json:"items"`
 }
 
@@ -44,7 +44,6 @@ func main() {
 
 	collector := colly.NewCollector(
 		colly.AllowedDomains("sic.pt"),
-		colly.CacheDir("./cache"),
 	)
 
 	episodes := make([]Episode, 0, 200)

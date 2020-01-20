@@ -1,6 +1,5 @@
 # Poject related
 .env
-cache/
 main
 rss.json
 
